@@ -1,0 +1,13 @@
+<footer>
+  <mat-card>
+    <mat-card-content>
+      <div>{{ footerContent.contactInfo }}</div>
+      <mat-nav-list>
+        <a mat-list-item *ngFor="let link of footerContent.links" [href]="link.url">{{ link.title }}</a>
+      </mat-nav-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <div>{{ footerContent.copyright }}</div>
+    </mat-card-actions>
+  </mat-card>
+</footer>

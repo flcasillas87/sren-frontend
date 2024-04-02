@@ -1,0 +1,28 @@
+nav {
+    position: fixed; /* Posiciona el sidebar de forma fija */
+    top: 0; /* Ajusta la posición desde arriba */
+    left: 0; /* Ajusta la posición desde la izquierda */
+    width: 200px; /* Ancho del sidebar */
+    height: 100%; /* Altura del sidebar */
+    background-color: #333; /* Color de fondo de la barra lateral */
+    z-index: 9999; /* Asegura que el sidebar esté por encima de todos los demás elementos */
+  }
+  
+  ul {
+    list-style-type: none; /* Quita los estilos de lista predeterminados */
+    padding: 0;
+  }
+  
+  li {
+    padding: 10px;
+  }
+  
+  a {
+    color: white; /* Color del texto de los enlaces */
+    text-decoration: none; /* Quita la decoración de subrayado */
+    display: block; /* Hace que los enlaces ocupen todo el ancho disponible */
+  }
+  
+  a:hover {
+    background-color: #555; /* Color de fondo cuando se pasa el ratón sobre los enlaces */
+  }

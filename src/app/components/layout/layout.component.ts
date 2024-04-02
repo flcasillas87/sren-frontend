@@ -1,0 +1,20 @@
+import { Component } from '@angular/core';
+import { RouterModule,Routes } from '@angular/router';
+
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { routes } from '../../app.routes';
+
+
+
+@Component({
+  selector: 'app-layout',
+  standalone: true,
+  imports: [RouterModule,HeaderComponent, FooterComponent,SidebarComponent],
+  templateUrl: './layout.component.html',
+  styleUrl: './layout.component.css'
+})
+export class LayoutComponent {
+
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LayoutComponent } from './components/layout/layout.component';
 import {
   RouterLink,
   RouterLinkActive,
@@ -7,27 +8,15 @@ import {
   Router,
 } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { DefaultLayoutComponent } from './default-layout/default-layout.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DefaultLayoutComponent],
+  imports: [RouterOutlet,LayoutComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'sren';
 
-  constructor(private router: Router, private titleService: Title) {
-    this.titleService.setTitle(this.title);
-  }
-
-  ngOnInit(): void {
-    this.router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
-        return;
-      }
-    });
-  }
 }

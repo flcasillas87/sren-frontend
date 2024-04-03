@@ -17,7 +17,7 @@ export class TestComponent {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.fetchData().subscribe(data => {
+    this.apiService.getUsuarios().subscribe(data => {
       this.responseData = data;
     });
   }

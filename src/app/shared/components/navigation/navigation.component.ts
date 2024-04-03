@@ -12,11 +12,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { RouterModule,Routes } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
+import { CommonModule } from '@angular/common';
+import { NavegationService } from '../../../core/services/navegation.service';
+import { INavData } from '../../../core/interfaces/interfaces';
 
 @Component({
   selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.css',
   standalone: true,
   imports: [
     MatToolbarModule,
@@ -27,15 +28,18 @@ import { HeaderComponent } from '../header/header.component';
     AsyncPipe,
     RouterModule,
     FooterComponent,
-    HeaderComponent
-  ]
+    HeaderComponent,CommonModule,NavegationService,
+  ],
+  templateUrl: './navigation.component.html',
+  styleUrl: './navigation.component.css',
 })
 export class NavigationComponent {
-  private breakpointObserver = inject(BreakpointObserver);
+  navItems = INavData[];
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  constructor(private navigationService: NavigationService) {
+    this.navItems = this.navigationService.getNavData();
+  }
+
+
+
 }

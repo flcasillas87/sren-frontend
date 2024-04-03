@@ -14,15 +14,18 @@ interface Item {
 export class DataService {
   private firestore = environment.firebaseConfig;
 
+  //Obtener Registro
   constructor(private db: AngularFirestore) {}
   getUsuarios(): Observable<any[]> {
     return this.db.collection<any>('usuarios').valueChanges();
   }
-
+  
+  //Guardar Registro
   guardarUsuario(usuario: any): Promise<any> {
     return this.db.collection('usuarios').add(usuario);
   }
   
+  //Eliminar Registro
   eliminarUsuario(id: string): Promise<any> {
     return this.db.collection('usuarios').doc(id).delete();
   }

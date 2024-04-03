@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { LayoutComponent } from './shared/components/layout/layout.component';
 import {  RouterLink,  RouterLinkActive, RouterOutlet,} from '@angular/router';
+import { NavigationComponent } from './shared/components/navigation/navigation.component';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, LayoutComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, LayoutComponent,NavigationComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

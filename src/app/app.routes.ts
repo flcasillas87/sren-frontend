@@ -9,7 +9,7 @@ import { RolesComponent } from './shared/components/admin/roles/roles.component'
 import { TestComponent } from './shared/components/test/test.component';
 
 export const routes: Routes = [
-  {path: '', component: TestComponent },
+  {path: ' ', component: NavigationComponent },
   { path: 'navigation', component: NavigationComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile', component: ProfileComponent },

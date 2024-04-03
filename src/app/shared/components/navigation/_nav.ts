@@ -1,4 +1,4 @@
-import { INavData } from "../../interfaces/interfaces";
+import { INavData } from "../../../core/interfaces/interfaces";
 
 export const navItems: INavData[] = [
     {

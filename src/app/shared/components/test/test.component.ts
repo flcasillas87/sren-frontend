@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiService } from '../../../core/services/api.service';
 
 @Component({
   selector: 'app-test',
@@ -10,15 +9,9 @@ import { ApiService } from '../../../core/services/api.service';
   styleUrl: './test.component.css'
 })
 export class TestComponent {
+  title = 'Test Component';
+  numbers=[1,2,3];
+  city='Guasave'
 
-  responseData!: any[];
 
-
-  constructor(private apiService: ApiService) { }
-
-  ngOnInit() {
-    this.apiService.getUsuarios().subscribe(data => {
-      this.responseData = data;
-    });
-  }
 }

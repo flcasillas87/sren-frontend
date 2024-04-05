@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { INavData } from '../interfaces/interfaces';
+import { INavData } from '../interfaces/navigation.interface';
 
 @Injectable({
   providedIn: 'root',

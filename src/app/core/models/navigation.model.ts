@@ -1,7 +1,8 @@
-import { INavData } from "../../../core/interfaces/interfaces";
+import { INavData } from "../interfaces/navigation.interface";
 
 export const navItems: INavData[] = [
     {
+      id:'1',
       name: 'Dashboard',
       url: '/dashboard',
 

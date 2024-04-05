@@ -1,4 +1,6 @@
-<h1>hola desde {{city}}</h1>
+tets
 <ul>
-  @for (item of items; track $index) {}
+  @for (navItems of navItems; track navItems.id) {
+<li>{{navItems.name}}</li>
+  }
 </ul>

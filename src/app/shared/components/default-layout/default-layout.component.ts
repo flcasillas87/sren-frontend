@@ -1,5 +1,5 @@
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { navItems } from '../navigation/_nav';
+import { navItems } from '../../../core/models/navigation.model';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { MatListModule } from '@angular/material/list';

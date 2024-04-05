@@ -41,9 +41,10 @@ export interface INavLinkProps {
     | false;
 }
 export interface INavData {
-  name?: string;
+  id?: string; // unique ID of the menu item
+  name?: string; 
   url?: string | any[];
-  href?: string;
+  href?: string; 
   icon?: string;
   iconComponent?: any;
   badge?: INavBadge;

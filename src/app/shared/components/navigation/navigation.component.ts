@@ -14,8 +14,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { CommonModule } from '@angular/common';
 import { NavegationService } from '../../../core/services/navegation.service';
-import { INavData } from '../../../core/interfaces/interfaces';
-
+import { INavData } from '../../../core/interfaces/navigation.interface';
 @Component({
   selector: 'app-navigation',
   standalone: true,
@@ -33,13 +32,6 @@ import { INavData } from '../../../core/interfaces/interfaces';
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
 })
-export class NavigationComponent {
-  navItems = INavData[];
-
-  constructor(private navigationService: NavigationService) {
-    this.navItems = this.navigationService.getNavData();
-  }
 
 
 
-}

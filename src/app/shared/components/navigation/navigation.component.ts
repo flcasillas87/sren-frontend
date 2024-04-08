@@ -8,15 +8,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { RouterModule,Routes } from '@angular/router';
-import { FooterComponent } from '../footer/footer.component';
-import { HeaderComponent } from '../header/header.component';
-import { CommonModule } from '@angular/common';
+
 import { NavegationService } from '../../../core/services/navegation.service';
-import { INavData } from '../../../core/interfaces/navigation.interface';
+
 @Component({
   selector: 'app-navigation',
+  templateUrl: './navigation.component.html',
+  styleUrl: './navigation.component.css',
   standalone: true,
   imports: [
     MatToolbarModule,
@@ -25,13 +23,20 @@ import { INavData } from '../../../core/interfaces/navigation.interface';
     MatListModule,
     MatIconModule,
     AsyncPipe,
-    RouterModule,
-    FooterComponent,
-    HeaderComponent,CommonModule,NavegationService,
   ],
-  templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.css',
+  providers: [NavegationService],
 })
+export class NavigationComponent {
+  private breakpointObserver = inject(BreakpointObserver);
 
+  constructor(private navegationService: NavegationService) {}
 
+  
 
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(
+      map((result) => result.matches),
+      shareReplay()
+    );
+}

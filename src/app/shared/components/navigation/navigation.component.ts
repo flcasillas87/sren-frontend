@@ -8,8 +8,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-
+import { INavData } from '../../../core/interfaces/navigation.interface';
 import { NavegationService } from '../../../core/services/navegation.service';
+import { LayoutComponent } from '../layout/layout.component';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
+import { CardComponent } from '../card/card.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { TestComponent } from '../test/test.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -23,15 +30,23 @@ import { NavegationService } from '../../../core/services/navegation.service';
     MatListModule,
     MatIconModule,
     AsyncPipe,
+    HeaderComponent,
+    LayoutComponent,
+    FooterComponent,
+    CardComponent,
+    DashboardComponent,
+    TestComponent,
+    RouterOutlet,
   ],
-  providers: [NavegationService],
 })
 export class NavigationComponent {
+  iNavData: INavData[];
+  constructor(private navegationService: NavegationService) {
+    this.iNavData = this.navegationService.getNavigationItems();
+  }
+
   private breakpointObserver = inject(BreakpointObserver);
 
-  constructor(private navegationService: NavegationService) {}
-
-  
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)

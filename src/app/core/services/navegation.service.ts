@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { navItems } from '../models/navigation.model';
 import { INavData } from '../interfaces/navigation.interface';
+import { NavigationModel } from '../models/navigation.model';
 
 // Servicio para gestionar el diseño dinámico de la navegación
 
@@ -8,39 +8,34 @@ import { INavData } from '../interfaces/navigation.interface';
   providedIn: 'root',
 })
 export class NavegationService {
-  // Implementa métodos y lógica para gestionar el diseño dinámico
-  // Modelo de datos para la navegación
-  
-     INavData[] = navItems;
-  constructor() { }
+  private iNavData: INavData[] = [
+    new NavigationModel('0', 'Test', '/Test'),
+    new NavigationModel('1', 'Card', '/Card'),
+    new NavigationModel('2', 'Dashboard', '/Dashboard'),
+    new NavigationModel('3', 'Form', '/Form'),
+    new NavigationModel('4', 'Table', '/Table'),
+  ];
+
+  constructor() {}
 
   // Devuelve el modelo de datos para la navegación
   getNavigationItems(): INavData[] {
-    return this.navItems;
+    return this.iNavData;
   }
 
-  // Añade un nuevo elemento de navegación al modelo de datos
-  addNavigationItem(newItem: INavData): void {
-    this.navItems.push(newItem);
+  // Añade un nuevo elemento a la navegación
+  addNavigationItem(iNavData: INavData): void {
+    this.iNavData.push(iNavData);
   }
 
-  // Elimina un elemento de navegación del modelo de datos
-  removeNavigationItem(itemToRemove: INavData): void {
-    this.navItems = this.navItems.filter((item) => item !== itemToRemove);
-  }
-  
-  // Actualiza un elemento de navegación del modelo de datos
-  updateNavigationItem(itemToUpdate: INavData, updatedItem: INavData): void {
-    const index = this.navItems.indexOf(itemToUpdate);
-    if (index !== -1) {
-      this.navItems[index] = updatedItem;
-    }
-  }
-    // Devuelve el elemento de navegación con el ID especificado
-  getNavigationItemById(id: string): INavData | undefined {
-    return this.navItems.find((item) => item.id === id);
+  // Elimina un elemento de la navegación
+  deleteNavigationItem(iNavData: INavData): void {
+    this.iNavData.splice(this.iNavData.indexOf(iNavData), 1);
   }
 
-  
+  // Actualiza un elemento de la navegación
+  updateNavigationItem(iNavData: INavData): void {
+    const index = this.iNavData.indexOf(iNavData);
+    this.iNavData[index] = iNavData;
   }
-
+}

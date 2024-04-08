@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { navItems } from '../../../core/models/navigation.model';
+import { NavigationModel } from '../../../core/models/navigation.model';
 
 @Component({
   selector: 'app-test',
@@ -10,7 +10,7 @@ import { navItems } from '../../../core/models/navigation.model';
   styleUrl: './test.component.css',
 })
 export class TestComponent {
-  navItems = navItems;
+  navItems = NavigationModel;
   title = 'Test Component';
 
 }

@@ -27,6 +27,7 @@ export class HeaderComponent {
    * @type string
    * @default 'header'
    */
+  
   @HostBinding('attr.role')
   @Input()
   role = 'header';

@@ -1,6 +1,7 @@
 export class Precio {
   constructor(
-    public name?: string|undefined,
-    public id?: number,
+    
+    public id: number,
+    public name: string,
   ) {}
 }

@@ -2,14 +2,15 @@ import { Component, HostBinding, Input } from '@angular/core';
 import { Positions } from '../../../core/interfaces/types';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 type Container = boolean | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'fluid';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule],
+  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatTooltipModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
@@ -27,13 +28,12 @@ export class HeaderComponent {
    * @type string
    * @default 'header'
    */
-  
+
   @HostBinding('attr.role')
   @Input()
   role = 'header';
 
-  @HostBinding('class')
-  get getClasses(): any {
+  @HostBinding('class') get getClasses(): any {
     return !!this.container ? this.containerClasses : this.headerClasses;
   }
 

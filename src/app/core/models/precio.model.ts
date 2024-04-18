@@ -1,8 +1,6 @@
 export class Precio {
   constructor(
+    public name?: string,
     public id?: number,
-    public central?: string,
-    public fecha?: string,
-    public valor?: number
   ) {}
 }

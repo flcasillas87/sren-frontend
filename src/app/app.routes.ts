@@ -5,29 +5,32 @@ import { CardComponent } from './shared/components/card/card.component';
 import { DashboardComponent } from './shared/components/dashboard/dashboard.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { TableComponent } from './shared/components/table/table.component';
+import { LayoutComponent } from './shared/components/layout/layout.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 export const routes: Routes = [
-  { path: '', component: NavigationComponent },
+  
+  { path: 'loader', component: LoaderComponent, },
   {
-    path: '/test',
+    path: 'test',
     component: TestComponent,
   },
   {
-    path: '/card',
+    path: 'card',
     component: CardComponent,
   },
 
   {
-    path: '/dashboard',
+    path: 'dashboard',
     component: DashboardComponent,
   },
   {
-    path: '/tabla',
+    path: 'table',
     component: TableComponent,
   },
 
   {
-    path: '/navigation',
+    path: 'navigation',
     component: NavigationComponent,
   },
 ];

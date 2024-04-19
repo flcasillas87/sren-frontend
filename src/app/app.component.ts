@@ -8,6 +8,7 @@ import { CardComponent } from './shared/components/card/card.component';
 import { DashboardComponent } from './shared/components/dashboard/dashboard.component';
 import { TestComponent } from './shared/components/test/test.component';
 import { TableComponent } from './shared/components/table/table.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -18,6 +19,7 @@ import { TableComponent } from './shared/components/table/table.component';
     NavigationComponent,
     RouterLinkActive,
     HeaderComponent,
+    SidebarComponent,
     FooterComponent,
     CardComponent,
     DashboardComponent,

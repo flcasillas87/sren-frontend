@@ -9,11 +9,11 @@ import { NavigationModel } from '../models/navigation.model';
 })
 export class NavegationService {
   private iNavData: INavData[] = [
-    new NavigationModel('0', 'Test', '/Test'),
-    new NavigationModel('1', 'Card', '/Card'),
-    new NavigationModel('2', 'Dashboard', '/Dashboard'),
-    new NavigationModel('3', 'Form', '/Form'),
-    new NavigationModel('4', 'Table', '/Table'),
+    new NavigationModel('0', 'Test', '/test'),
+    new NavigationModel('1', 'Card', '/card'),
+    new NavigationModel('2', 'Dashboard', 'dashboard'),
+    new NavigationModel('3', 'Form', '/form'),
+    new NavigationModel('4', 'Table', '/table'),
   ];
 
   constructor() {}

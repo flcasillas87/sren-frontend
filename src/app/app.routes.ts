@@ -1,16 +1,23 @@
-import { Routes, RouterModule, ResolveStart } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { TestComponent } from './shared/components/test/test.component';
 import { CardComponent } from './shared/components/card/card.component';
 import { DashboardComponent } from './shared/components/dashboard/dashboard.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { TableComponent } from './shared/components/table/table.component';
-import { LayoutComponent } from './shared/components/layout/layout.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 
 export const routes: Routes = [
+
+  //Ruta para la página de inicio
+  {
+    path: '',//Ruta Base
+    component: NavigationComponent,
+    pathMatch: 'full', // Coincidencia completa, la URL debe ser exactamente igual a ''
+  },
+
   
-  { path: 'loader', component: LoaderComponent, },
+  { path: 'loader', component: LoaderComponent },
   {
     path: 'test',
     component: TestComponent,

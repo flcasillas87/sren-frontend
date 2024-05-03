@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore,provideFirestore,Firestore, collectionData, collection } from '@angular/fire/firestore';
+
 import { environment } from '../../../enviroments/environment';
 
 interface Item {

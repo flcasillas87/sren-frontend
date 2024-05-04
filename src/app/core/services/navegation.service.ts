@@ -14,6 +14,12 @@ export class NavegationService {
     new NavigationModel('2', 'Dashboard', 'dashboard'),
     new NavigationModel('3', 'Form', '/form'),
     new NavigationModel('4', 'Table', '/table'),
+    new NavigationModel('5', 'Test', '/test'),
+    new NavigationModel('6', 'Card', '/card'),
+    new NavigationModel('7', 'Dashboard', 'dashboard'),
+    new NavigationModel('8', 'Form', '/form'),
+    new NavigationModel('9', 'Table', '/table'),
+    
   ];
 
   constructor() {}

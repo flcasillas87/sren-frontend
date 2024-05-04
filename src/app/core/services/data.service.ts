@@ -1,11 +1,19 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import {
+  Firestore,
+  addDoc,
+  collection,
+  collectionData,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+} from '@angular/fire/firestore';
 
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { provideFirebaseApp } from '@angular/fire/app';
-import { getFirestore,provideFirestore,Firestore, collectionData, collection } from '@angular/fire/firestore';
-
-import { environment } from '../../../enviroments/environment';
+import { Precio } from '../models/precios.model';
 
 interface Item {
   name: string;
@@ -15,23 +23,18 @@ interface Item {
   providedIn: 'root',
 })
 export class DataService {
-  private firestore = environment.firebaseConfig;
+  // private firestore = environment.firebaseConfig;
 
-  //Obtener Registro
-  constructor(private db: AngularFirestore) {}
-  getUsuarios(): Observable<any[]> {
-    return this.db.collection<any>('usuarios').valueChanges();
-  }
-  
-  //Guardar Registro
-  guardarUsuario(usuario: any): Promise<any> {
-    return this.db.collection('usuarios').add(usuario);
-  }
-  
-  //Eliminar Registro
-  eliminarUsuario(id: string): Promise<any> {
-    return this.db.collection('usuarios').doc(id).delete();
+  constructor(private firestore: Firestore) {}
+
+  //PRECIOS
+  addPrecio(precio: Precio) {
+    const precioRef = collection(this.firestore, 'precios');
+    return addDoc(precioRef, precio);
   }
 
-
+  deletePrecio(id: string) {
+    const precioRef = doc(this.firestore, 'precios', id);
+    return deleteDoc(precioRef);
+  }
 }

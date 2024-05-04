@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Precio } from "./precio.model";
+import { Precio } from "./precios.model";
 
 @Injectable()
 export class StaticDataSource{

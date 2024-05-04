@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
-import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { environment } from '../enviroments/environment';
 
 
 import { LayoutComponent } from './shared/components/layout/layout.component';
@@ -31,7 +29,6 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     DashboardComponent,
     TestComponent,
     TableComponent,
-    //AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
   ],
   templateUrl: './app.component.html',

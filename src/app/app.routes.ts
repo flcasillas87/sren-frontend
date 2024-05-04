@@ -40,4 +40,14 @@ export const routes: Routes = [
     path: 'navigation',
     component: NavigationComponent,
   },
+
+  {
+    path: 'navigation',
+    component: NavigationComponent,
+  },
+
+  {
+    path: 'navigation',
+    component: NavigationComponent,
+  },
 ];

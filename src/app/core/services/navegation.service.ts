@@ -1,47 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { INavData } from '../interfaces/navigation.interface';
 import { NavigationModel } from '../models/navigation.model';
+import { get } from 'jquery';
 
 // Servicio para gestionar el diseño dinámico de la navegación
-
 @Injectable({
   providedIn: 'root',
 })
 export class NavegationService {
-  private iNavData: INavData[] = [
-    new NavigationModel('0', 'Test', '/test'),
-    new NavigationModel('1', 'Card', '/card'),
-    new NavigationModel('2', 'Dashboard', 'dashboard'),
-    new NavigationModel('3', 'Form', '/form'),
-    new NavigationModel('4', 'Table', '/table'),
-    new NavigationModel('5', 'Test', '/test'),
-    new NavigationModel('6', 'Card', '/card'),
-    new NavigationModel('7', 'Dashboard', 'dashboard'),
-    new NavigationModel('8', 'Form', '/form'),
-    new NavigationModel('9', 'Table', '/table'),
-    
-  ];
+  // Datos de navegación
+  private navigationModel: NavigationModel = inject(NavigationModel);
+  //menuItems: NavigationModel[] = [];
+  menuItems = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
+
+  // Método para obtener los elementos de navegación
+
+  getMenuItems() {
+    return this.menuItems;
+  }
 
   constructor() {}
-
-  // Devuelve el modelo de datos para la navegación
-  getNavigationItems(): INavData[] {
-    return this.iNavData;
-  }
-
-  // Añade un nuevo elemento a la navegación
-  addNavigationItem(iNavData: INavData): void {
-    this.iNavData.push(iNavData);
-  }
-
-  // Elimina un elemento de la navegación
-  deleteNavigationItem(iNavData: INavData): void {
-    this.iNavData.splice(this.iNavData.indexOf(iNavData), 1);
-  }
-
-  // Actualiza un elemento de la navegación
-  updateNavigationItem(iNavData: INavData): void {
-    const index = this.iNavData.indexOf(iNavData);
-    this.iNavData[index] = iNavData;
-  }
 }

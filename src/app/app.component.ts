@@ -35,5 +35,5 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'sren';
+  title = 'SREN';
 }

@@ -9,45 +9,5 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
 
 export const routes: Routes = [
 
-  //Ruta para la página de inicio
-  {
-    path: '',//Ruta Base
-    component: NavigationComponent,
-    pathMatch: 'full', // Coincidencia completa, la URL debe ser exactamente igual a ''
-  },
 
-  
-  { path: 'loader', component: LoaderComponent },
-  {
-    path: 'test',
-    component: TestComponent,
-  },
-  {
-    path: 'card',
-    component: CardComponent,
-  },
-
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-  },
-  {
-    path: 'table',
-    component: TableComponent,
-  },
-
-  {
-    path: 'navigation',
-    component: NavigationComponent,
-  },
-
-  {
-    path: 'navigation',
-    component: NavigationComponent,
-  },
-
-  {
-    path: 'navigation',
-    component: NavigationComponent,
-  },
 ];

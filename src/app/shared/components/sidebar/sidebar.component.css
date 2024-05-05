@@ -1,28 +1,44 @@
-nav {
-    position: fixed; /* Posiciona el sidebar de forma fija */
-    top: 0; /* Ajusta la posición desde arriba */
-    left: 0; /* Ajusta la posición desde la izquierda */
-    width: 200px; /* Ancho del sidebar */
-    height: 100%; /* Altura del sidebar */
-    background-color: #333; /* Color de fondo de la barra lateral */
-    z-index: 9999; /* Asegura que el sidebar esté por encima de todos los demás elementos */
+.sidenav-header {
+  padding-top: 24px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  > img {
+    width: 100px;
+    height: 100px;
+    margin-right: 8%;
+    margin-left: 8%;
+    margin-bottom: 10px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+    object-fit: cover;
   }
-  
-  ul {
-    list-style-type: none; /* Quita los estilos de lista predeterminados */
-    padding: 0;
+}
+
+.sidenav-header-text {
+  > h1 {
+    font-size: 1rem;
+    font-weight: bold;
   }
-  
-  li {
-    padding: 10px;
+  > h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.5rem;
   }
-  
-  a {
-    color: white; /* Color del texto de los enlaces */
-    text-decoration: none; /* Quita la decoración de subrayado */
-    display: block; /* Hace que los enlaces ocupen todo el ancho disponible */
+  > h3 {
+    font-size: 1rem;
+    font-weight: bold;
   }
-  
-  a:hover {
-    background-color: #555; /* Color de fondo cuando se pasa el ratón sobre los enlaces */
+  > h4 {
+    font-size: 1rem;
+    font-weight: bold;
   }
+  > p {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.5rem;
+  }
+}

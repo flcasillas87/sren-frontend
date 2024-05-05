@@ -1,9 +1,14 @@
-import { INavData } from '../interfaces/navigation.interface';
-
-export class NavigationModel implements INavData {
+export class NavigationModel {
   constructor(
     public id: string,
-    public name: string,
     public url: string,
+    public label: string,
+    public name: string,
+    public href: string,
+    public icon: string,
+    public iconComponent: any,
+    public title: boolean,
+    public variant: string,
+    public divider: boolean
   ) {}
 }

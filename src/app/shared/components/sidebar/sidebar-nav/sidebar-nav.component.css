@@ -1,0 +1,9 @@
+mat-nav-list {
+
+    >span{
+        text-decoration: none;
+        font-size: 14px;
+
+    }
+}
+

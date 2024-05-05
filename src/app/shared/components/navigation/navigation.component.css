@@ -1,9 +1,17 @@
 .sidenav-container {
-    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 10em;
+    margin-top: 50px;
+    flex-direction: column;
 }
 .sidenav-content {
     padding: 24px;
 }
 .sidenav {
-    width: 250px;
+    width: 200px;
 }

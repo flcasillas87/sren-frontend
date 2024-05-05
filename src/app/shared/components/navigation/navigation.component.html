@@ -26,26 +26,29 @@
   </header>
 
   <!-- Menú lateral -->
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav class="sidenav" opened mode="side">
+  <mat-sidenav-container class="sidenav-container" autosize>
+    <mat-sidenav #sidenav mode="side" [opened]="opened" position="start">
+
+      {{opened ? 'Fixed' : 'Non-fixed'}} Sidenav
+
       <app-sidebar></app-sidebar>
     </mat-sidenav>
+
     <!-- Body -->
     <mat-sidenav-content class="sidenav-content">
-      <!-- Contenido principal -->
       <main>
-        contenido principal
-
+        <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
+          <router-outlet></router-outlet>
       </main>
+      <!-- Pie de página -->
+      <footer>
+        <app-footer></app-footer>
+      </footer>
     </mat-sidenav-content>
+
   </mat-sidenav-container>
 
 
-
-  <!-- Pie de página -->
-  <footer>
-    <app-footer></app-footer>
-  </footer>
 </body>
 
 </html>

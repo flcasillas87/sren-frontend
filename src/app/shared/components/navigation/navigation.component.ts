@@ -1,12 +1,19 @@
-import { Component, inject, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  Input,
+  ViewChild,
+} from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { MatIconModule } from '@angular/material/icon';
 
@@ -21,6 +28,9 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { TestComponent } from '../test/test.component';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { SignalGetter } from '@angular/core/primitives/signals';
+import { event } from 'jquery';
+import { NavigationModel } from '../../../core/models/navigation.model';
 
 @Component({
   selector: 'app-navigation',
@@ -43,13 +53,35 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
     RouterOutlet,
     MatCheckboxModule,
     SidebarComponent,
+    FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class NavigationComponent {
-  private navegationService = inject(NavegationService);
-  events: string[] = [];
-  opened: boolean=false;
-  inavData: INavData[] = [];
+  newItem: NavigationModel = new NavigationModel(
+    '1',
+    '/Dasboard',
+    'Dasboard',
+    'Dashboard',
+    '/Dasboard',
+    'Dashboard',
+    'Dashboard',
+    'Dashboard',
+    'dasboard',
+    'dasboard'
+  );
+  isCollapsed = false;
+  opened: boolean = true;
+
+  constructor(public navegationService: NavegationService) { }
+
+  addMenuItem(item: NavigationModel) {
+    const nuevoId=this.navegationService.getMenuItems().length+1;
+    this.newItem.id=nuevoId;
+    this.navegationService.addMenuItem(this.newItem);
+    this.newItem=new NavigationModel(nuevoId+1,'');
+  }
+
 
   fillerContent = Array.from(
     { length: 50 },

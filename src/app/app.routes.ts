@@ -10,4 +10,38 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
 export const routes: Routes = [
 
 
+  
+  { path: 'loader', component: LoaderComponent },
+  {
+    path: 'test',
+    component: TestComponent,
+  },
+  {
+    path: 'card',
+    component: CardComponent,
+  },
+
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+  },
+  {
+    path: 'table',
+    component: TableComponent,
+  },
+
+  {
+    path: 'navigation',
+    component: NavigationComponent,
+  },
+
+  {
+    path: 'navigation',
+    component: NavigationComponent,
+  },
+
+  {
+    path: 'navigation',
+    component: NavigationComponent,
+  },
 ];

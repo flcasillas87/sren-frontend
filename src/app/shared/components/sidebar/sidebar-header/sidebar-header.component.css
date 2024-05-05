@@ -1,0 +1,44 @@
+.sidenav-header {
+    padding-top: 24px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    > img {
+        width: 100px;
+        height: 100px;
+        margin-right: 8%;
+        margin-left: 8%;
+        margin-bottom: 10px;
+        border: 2px solid #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 100%;
+        object-fit: cover;
+    }
+}
+
+.sidenav-header-text {
+    > h1 {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    > h2 {
+        font-size: 1rem;
+        font-weight: bold;
+        margin: 0;
+        line-height: 1.5rem;
+    }
+    > h3 {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    > h4 {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    > p {
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin: 0;
+        line-height: 1.5rem;
+    }
+}

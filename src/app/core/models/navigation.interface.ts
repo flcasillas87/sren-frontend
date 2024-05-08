@@ -58,3 +58,4 @@ export interface INavData {
   wrapper?: INavWrapper;
   linkProps?: INavLinkProps;
 }
+

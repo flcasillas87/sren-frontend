@@ -1,14 +1,12 @@
-export class NavigationModel {
-  constructor(
-    public id?: any,
-    public url?: string,
-    public label?: string,
-    public name?: string,
-    public href?: string,
-    public icon?: string,
-    public iconComponent?: any,
-    public title?: string,
-    public variant?: string,
-    public divider?: string
-  ) {}
+export interface NavigationModel {
+  id: any;
+  url: string;
+  label?: string;
+  name: string;
+  href: string;
+  icon?: string;
+  iconComponent?: any;
+  title?: string;
+  variant?: string;
+  divider?: string;
 }

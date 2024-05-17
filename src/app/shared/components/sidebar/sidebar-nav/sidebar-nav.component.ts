@@ -12,9 +12,54 @@ import { NavegationService } from '../../../../core/services/navegation.service'
   styleUrl: './sidebar-nav.component.css',
 })
 export class SidebarNavComponent {
-  menuItems: NavigationModel[];
-
-  constructor(public navegationService: NavegationService) {
-    this.menuItems = this.navegationService.getMenuItems();
-  }
+  menuItems: NavigationModel[] = [
+    {
+      id: '',
+      url: '',
+      label: 'string',
+      name: 'string',
+      href: 'string',
+      icon: 'home',
+      iconComponent: 'any',
+      title: 'string',
+      variant: 'string',
+      divider: 'string',
+    },
+    {
+      id: '',
+      url: '',
+      label: 'string',
+      name: 'string',
+      href: 'string',
+      icon: 'dashboard',
+      iconComponent: 'any',
+      title: 'string',
+      variant: 'string',
+      divider: 'string',
+    },
+    {
+      id: '',
+      url: '',
+      label: 'string',
+      name: 'string',
+      href: 'string',
+      icon: 'app_registration',
+      iconComponent: 'any',
+      title: 'string',
+      variant: 'string',
+      divider: 'string',
+    },
+    {
+      id: '',
+      url: '',
+      label: 'string',
+      name: 'Precios',
+      href: 'string',
+      icon: 'attach_money',
+      iconComponent: 'any',
+      title: 'string',
+      variant: 'string',
+      divider: 'string',
+    },
+  ];
 }

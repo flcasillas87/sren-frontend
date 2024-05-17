@@ -20,7 +20,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { INavData } from '../../../core/interfaces/navigation.interface';
 
 import { NavegationService } from '../../../core/services/navegation.service';
-import { LayoutComponent } from '../layout/layout.component';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CardComponent } from '../card/card.component';
@@ -45,7 +44,6 @@ import { NavigationModel } from '../../../core/models/navigation.model';
     MatIconModule,
     AsyncPipe,
     HeaderComponent,
-    LayoutComponent,
     FooterComponent,
     CardComponent,
     DashboardComponent,
@@ -58,30 +56,11 @@ import { NavigationModel } from '../../../core/models/navigation.model';
   ],
 })
 export class NavigationComponent {
-  newItem: NavigationModel = new NavigationModel(
-    '1',
-    '/Dasboard',
-    'Dasboard',
-    'Dashboard',
-    '/Dasboard',
-    'Dashboard',
-    'Dashboard',
-    'Dashboard',
-    'dasboard',
-    'dasboard'
-  );
+
   isCollapsed = false;
   opened: boolean = true;
 
   constructor(public navegationService: NavegationService) { }
-
-  addMenuItem(item: NavigationModel) {
-    const nuevoId=this.navegationService.getMenuItems().length+1;
-    this.newItem.id=nuevoId;
-    this.navegationService.addMenuItem(this.newItem);
-    this.newItem=new NavigationModel(nuevoId+1,'');
-  }
-
 
   fillerContent = Array.from(
     { length: 50 },

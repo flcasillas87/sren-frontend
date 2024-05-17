@@ -17,7 +17,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { MatIconModule } from '@angular/material/icon';
 
-import { INavData } from '../../../core/interfaces/navigation.interface';
+import { INavData } from '../../../core/models/navigation.interface';
 
 import { NavegationService } from '../../../core/services/navegation.service';
 import { HeaderComponent } from '../header/header.component';

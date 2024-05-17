@@ -1,10 +1,22 @@
 import { Injectable, inject } from '@angular/core';
 import { NavigationModel } from '../models/navigation.model';
+import { SidebarComponent } from '../../shared/components/sidebar/sidebar.component';
 import { Observable, of, BehaviorSubject, Subject } from 'rxjs';
 import { get } from 'jquery';
-export interface ISidebarAction {}
 
-// Servicio para gestionar el diseño dinámico de la navegación
+
+export interface ISidebarAction {
+  unfoldable?: boolean | 'toggle';
+  visible?: boolean | 'toggle';
+  toggle?: 'visible' | 'unfoldable';
+  narrow?: boolean;
+  mobile?: boolean;
+  //sidebar?: SidebarComponent;
+  id?: string;
+}
+
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -14,8 +26,10 @@ export class NavegationService {
   private isCollapsed: boolean = true;
   private isCollapsedSubject = new BehaviorSubject<boolean>(true);
   private isCollapsed$ = this.isCollapsedSubject.asObservable();
-  private sidebarState = new BehaviorSubject<ISidebarAction>({}); //REVISAR
+  private sidebarState = new BehaviorSubject<ISidebarAction>({});//REVISAR
   sidebarState$ = this.sidebarState.asObservable();
+
+
 
   constructor() {}
 

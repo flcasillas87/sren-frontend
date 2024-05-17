@@ -50,12 +50,3 @@ export class LayoutComponent {
     );
 }
 
-export const menuItems: NavigationModel[] = [
-  {
-    id: 'Enlace',
-    name:'',
-    url:'',
-    href:'',
-    icon:'',
-  },
-];

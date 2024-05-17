@@ -31,9 +31,7 @@ export class SidebarComponent {
   #layoutChangeSubscription!: Subscription;
   #stateToggleSubscription!: Subscription;
 
-  state: ISidebarAction = {
-    sidebar: this,
-  };
+
 
   #stateInitial = {
     narrow: false,

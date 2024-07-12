@@ -1,5 +1,4 @@
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { navItems } from '../../../core/models/navigation.model';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
@@ -32,9 +31,7 @@ function isOverflown(element: HTMLElement) {
 })
 export class DefaultLayoutComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
-  public navItems = navItems;
 
-  fillerNav = navItems
 
   fillerContent = Array.from(
     { length: 50 },

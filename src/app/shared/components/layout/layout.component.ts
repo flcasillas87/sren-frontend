@@ -1,3 +1,4 @@
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { Component, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
@@ -36,7 +37,9 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
     SidebarNavComponent,
     SidebarHeaderComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    RouterOutlet,
+    RouterLink,
   ],
 })
 export class LayoutComponent {
@@ -49,4 +52,3 @@ export class LayoutComponent {
       shareReplay()
     );
 }
-

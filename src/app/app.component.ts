@@ -16,8 +16,9 @@ import { LayoutComponent } from './shared/components/layout/layout.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
     RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
     NavigationComponent,
     RouterLinkActive,
     HeaderComponent,

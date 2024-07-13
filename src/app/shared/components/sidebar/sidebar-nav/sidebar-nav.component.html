@@ -1,10 +1,13 @@
 <mat-nav-list>
-  <ul>
-    @for (item of menuItems; track $index) {
-    <li>
-      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon={{item.icon}}></mat-icon>
-      <a href="{{item.url}}">{{item.name}}</a>
-    </li>
-    }
-  </ul>
+  @for (item of menuItems; track item) {
+
+  <mat-list-item >
+    <a matListItemTitle href="{{item.url}}"> {{item.name}}
+
+    </a>
+  </mat-list-item>
+
+
+  }
+
 </mat-nav-list>

@@ -13,7 +13,7 @@ import { TableComponent } from './shared/components/table/table.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 
 export const routes: Routes = [
-  { path: '**', component: },
+ // { path: '**', component: },
   { path: 'admin', component: AdminComponent },
   { path: 'adresform', component: AdressformComponent },
   { path: 'defaultlayout', component: DefaultLayoutComponent },

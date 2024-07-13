@@ -1,13 +1,4 @@
-import {
-  Component,
-  computed,
-  output,
-  Input,
-  signal,
-  EventEmitter,
-  Output,
-  Signal,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,9 +19,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
 import { NavegationService } from '../../../../core/services/navegation.service';
 
@@ -64,7 +52,5 @@ import { NavegationService } from '../../../../core/services/navegation.service'
   styleUrl: './header-toggler.component.css',
 })
 export class HeaderTogglerComponent {
-
   constructor(public navegationService: NavegationService) {}
-
 }

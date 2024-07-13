@@ -25,11 +25,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { CardComponent } from '../card/card.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { TestComponent } from '../test/test.component';
-import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { SignalGetter } from '@angular/core/primitives/signals';
-import { event } from 'jquery';
-import { NavigationModel } from '../../../core/models/navigation.model';
 
 @Component({
   selector: 'app-navigation',
@@ -48,7 +44,6 @@ import { NavigationModel } from '../../../core/models/navigation.model';
     CardComponent,
     DashboardComponent,
     TestComponent,
-    RouterOutlet,
     MatCheckboxModule,
     SidebarComponent,
     FormsModule,

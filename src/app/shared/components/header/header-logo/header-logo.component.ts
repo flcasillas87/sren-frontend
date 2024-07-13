@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterLinkActive, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -11,8 +10,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    RouterLinkActive,
-    RouterModule,
   ],
   templateUrl: './header-logo.component.html',
   styleUrl: './header-logo.component.css',

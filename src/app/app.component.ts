@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-
+import { LayoutComponent } from './shared/components/layout/layout.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
@@ -11,16 +9,11 @@ import { DashboardComponent } from './shared/components/dashboard/dashboard.comp
 import { TestComponent } from './shared/components/test/test.component';
 import { TableComponent } from './shared/components/table/table.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
-import { LayoutComponent } from './shared/components/layout/layout.component';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterLink,
-    RouterLinkActive,
-    RouterOutlet,
     NavigationComponent,
-    RouterLinkActive,
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
@@ -28,8 +21,7 @@ import { LayoutComponent } from './shared/components/layout/layout.component';
     DashboardComponent,
     TestComponent,
     TableComponent,
-    AngularFirestoreModule,
-    LayoutComponent
+    LayoutComponent   
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

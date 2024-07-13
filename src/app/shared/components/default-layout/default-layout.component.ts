@@ -1,4 +1,3 @@
-import { RouterLink, RouterOutlet } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
@@ -18,8 +17,6 @@ function isOverflown(element: HTMLElement) {
   selector: 'app-default-layout',
   standalone: true,
   imports: [
-    RouterLink,
-    RouterOutlet,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,

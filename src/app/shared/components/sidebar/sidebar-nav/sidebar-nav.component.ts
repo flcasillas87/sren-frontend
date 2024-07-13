@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NavigationModel } from '../../../../core/models/navigation.model';
-import { NavegationService } from '../../../../core/services/navegation.service';
 
 @Component({
   selector: 'app-sidebar-nav',

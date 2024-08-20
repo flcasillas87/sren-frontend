@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Firestore, collection, collectionData  } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { LayoutComponent } from './shared/components/layout/layout.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
@@ -21,11 +23,18 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     DashboardComponent,
     TestComponent,
     TableComponent,
-    LayoutComponent   
+    LayoutComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'SREN';
+  firestore: Firestore = inject(Firestore);
+  items$: Observable<any[]>;
+  constructor() {
+    const aCollection = collection(this.firestore, 'items')
+    this.items$ = collectionData(aCollection);
+  }
+
 }

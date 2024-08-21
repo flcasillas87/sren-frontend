@@ -27,4 +27,4 @@ import { MenuItem } from './core/models/navigation.model';
 export class AppComponent {
   title = 'SREN';
 
-
+}

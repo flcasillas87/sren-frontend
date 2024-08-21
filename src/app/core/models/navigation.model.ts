@@ -1,4 +1,4 @@
-export interface NavigationModel {
+export interface MenuItem {
   id: any;
   url: string;
   label?: string;

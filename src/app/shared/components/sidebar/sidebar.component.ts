@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { SidebarHeaderComponent } from './sidebar-header/sidebar-header.component';
 import { SidebarNavComponent } from './sidebar-nav/sidebar-nav.component';
 @Component({

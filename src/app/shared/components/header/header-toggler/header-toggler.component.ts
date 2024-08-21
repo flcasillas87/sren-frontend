@@ -20,7 +20,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AsyncPipe } from '@angular/common';
-import { NavegationService } from '../../../../core/services/navegation.service';
 
 @Component({
   selector: 'app-header-toggler',
@@ -52,5 +51,5 @@ import { NavegationService } from '../../../../core/services/navegation.service'
   styleUrl: './header-toggler.component.css',
 })
 export class HeaderTogglerComponent {
-  constructor(public navegationService: NavegationService) {}
+
 }

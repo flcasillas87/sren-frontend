@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { MatSortModule, MatSort } from '@angular/material/sort';
 import { TableDataSource, TableItem } from './table-datasource';
-import { Precio } from '../../../core/models/precios.model';
+import { Precio } from '../models/precios.model';
 
 @Component({
   selector: 'app-table',

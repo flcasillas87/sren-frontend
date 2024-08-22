@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { param } from 'jquery';
-import { Precio } from '../../../core/models/precios.model';
+import { Precio } from '../models/precios.model';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 

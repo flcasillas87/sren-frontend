@@ -4,7 +4,7 @@ import { AdminComponent } from './shared/components/admin/admin.component';
 import { AdressformComponent } from './shared/components/adressform/adressform.component';
 import { TestComponent } from './shared/components/test/test.component';
 import { CardComponent } from './core/card/card.component';
-import { TableComponent } from './shared/components/table/table.component';
+import { TableComponent } from './core/table/table.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { LayoutComponent } from './shared/components/layout/layout.component';
 

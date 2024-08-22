@@ -8,9 +8,9 @@ export class MenuService {
   public menuItems: MenuItem[] = [
     {
       id: 0,
-      url: '',
-      label: '',
-      name: '',
+      url: "name",
+      label: "hola",
+      name: "nombre 1",
       href: '',
       icon: '',
       iconComponent: '',

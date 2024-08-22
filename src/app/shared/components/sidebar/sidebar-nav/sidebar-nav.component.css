@@ -1,4 +1,5 @@
 mat-nav-list {
+    background-color: rgb(202, 153, 247);
     > span {
         text-decoration: none;
         font-size: 14px;

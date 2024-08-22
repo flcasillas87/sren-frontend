@@ -1,0 +1,9 @@
+<mat-nav-list>
+    <h4>Items de Navegacion</h4>
+    @for (item of menuItems; track item.name) {
+    <mat-list-item>
+        <a matListItemTitle href="{{item.url}}"> {{item.name}}
+        </a>
+    </mat-list-item>
+    }
+</mat-nav-list>

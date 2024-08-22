@@ -4,11 +4,13 @@ import { MatListModule } from '@angular/material/list';
 
 import { MenuService } from '../../../../core/services/navegation.service';
 import { MenuItem } from '../../../../core/models/navigation.model';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-sidebar-nav',
   standalone: true,
-  imports: [MatListModule, MatIcon],
+  imports: [MatListModule, MatIcon,RouterModule],
   templateUrl: './sidebar-nav.component.html',
   styleUrl: './sidebar-nav.component.css',
 })

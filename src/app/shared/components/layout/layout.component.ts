@@ -35,7 +35,7 @@ import { RouterOutlet } from '@angular/router';
     FooterComponent,
   ],
 })
-export class LayoutComponent {
+export default class LayoutComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver

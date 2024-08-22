@@ -22,7 +22,7 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule
   ]
 })
-export class AdressformComponent {
+export default class AdressformComponent {
   private fb = inject(FormBuilder);
   addressForm = this.fb.group({
     company: null,

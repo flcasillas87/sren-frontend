@@ -8,7 +8,7 @@ import { PreciosService } from '../../../core/services/precios.service';
   templateUrl: './precios.component.html',
   styleUrl: './precios.component.css'
 })
-export class PreciosComponent {
+export default class PreciosComponent {
 
   
 }

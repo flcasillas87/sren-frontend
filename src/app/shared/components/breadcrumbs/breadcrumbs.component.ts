@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './breadcrumbs.component.html',
   styleUrl: './breadcrumbs.component.css'
 })
-export class BreadcrumbsComponent {
+export default class BreadcrumbsComponent {
 
 }

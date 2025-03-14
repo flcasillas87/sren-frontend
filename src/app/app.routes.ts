@@ -23,6 +23,5 @@ export const routes: Routes = [
       },
     ]
   },
-  // Uncomment and define a component to handle unknown routes
-  // { path: '**', component: PageNotFoundComponent },
+
 ];

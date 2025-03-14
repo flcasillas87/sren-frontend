@@ -1,28 +1,12 @@
 <mat-sidenav-container class="sidenav-container">
-  #SIDENAV-CONTAINER
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    #SIDEBAR
+  <mat-sidenav #sidenav mode="side" opened>
+    <app-sidebar-nav></app-sidebar-nav>
+    <app-sidebar-header></app-sidebar-header>
     <app-sidebar></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>
-    <h4>#sidenav-content</h4>
-    <mat-toolbar color="primary">
-      #toolbar
-      @if (isHandset$ | async) {
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      }
-    </mat-toolbar>
-    <!-- Add Content Here -->
-    #CONTENIDO PRINCIPAL
-    <main>
-      <router-outlet />
-    </main>
-    <footer>
-      #footer
-      <app-footer></app-footer>
-    </footer>
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

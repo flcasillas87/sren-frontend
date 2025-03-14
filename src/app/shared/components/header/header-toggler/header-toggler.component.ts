@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,7 +20,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-header-toggler',
@@ -48,8 +48,6 @@ import { AsyncPipe } from '@angular/common';
     MatDialogModule,
   ],
   templateUrl: './header-toggler.component.html',
-  styleUrl: './header-toggler.component.css',
+  styleUrls: ['./header-toggler.component.css'],
 })
-export class HeaderTogglerComponent {
-
-}
+export class HeaderTogglerComponent {}

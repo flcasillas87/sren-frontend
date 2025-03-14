@@ -1,8 +1,6 @@
 import { Routes } from '@angular/router';
 
-
 export const routes: Routes = [
-  //{ path: '**', component: },
   {
     path: '',
     loadComponent: () => import('./shared/components/layout/layout.component'),
@@ -20,14 +18,11 @@ export const routes: Routes = [
         loadComponent: () => import('./shared/components/precios/precios.component'),
       },
       { 
-        path: 'admin', 
-        loadComponent: () => import('./shared/components/admin/admin.component'),
-      },
-      { 
         path: 'card', 
         loadComponent: () => import('./core/card/card.component'),
       },
     ]
-
   },
+  // Uncomment and define a component to handle unknown routes
+  // { path: '**', component: PageNotFoundComponent },
 ];

@@ -13,7 +13,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withViewTransitions(), withComponentInputBinding()),
     provideAnimationsAsync(),
-    provideAnimationsAsync(),
     firebaseProviders,
   ],
 };

@@ -1,23 +1,22 @@
 import { Component } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { RouterModule } from '@angular/router';
 
 import { MenuService } from '../../../../core/services/navegation.service';
 import { MenuItem } from '../../../../core/models/navigation.model';
-import { RouterModule } from '@angular/router';
-
 
 @Component({
   selector: 'app-sidebar-nav',
   standalone: true,
-  imports: [MatListModule, MatIcon,RouterModule],
+  imports: [MatListModule, MatIconModule, RouterModule],
   templateUrl: './sidebar-nav.component.html',
-  styleUrl: './sidebar-nav.component.css',
+  styleUrls: ['./sidebar-nav.component.css'],
 })
 export class SidebarNavComponent {
-  menuItems: MenuItem[] = [];
+  readonly menuItems: MenuItem[] = [];
 
-  constructor(private menuService: MenuService) {
+  constructor(private readonly menuService: MenuService) {
     this.menuItems = this.menuService.getMenuItems();
   }
 }

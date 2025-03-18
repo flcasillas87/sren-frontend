@@ -1,14 +1,5 @@
 {
   "projects": {
     "default": "sren-26321"
-  },
-  "targets": {
-    "sren-26321": {
-      "hosting": {
-        "sren": [
-          "sren-26321"
-        ]
-      }
-    }
   }
 }

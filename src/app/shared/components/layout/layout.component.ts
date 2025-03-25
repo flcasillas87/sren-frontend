@@ -37,12 +37,42 @@ import { FooterComponent } from '../footer/footer.component';
   ],
 })
 export default class LayoutComponent {
+  // Inyecta el servicio BreakpointObserver para detectar cambios en los puntos de interrupción de la pantalla
   private readonly breakpointObserver = inject(BreakpointObserver);
 
+  // Observable que emite true si la pantalla es de tamaño "handset" (dispositivo móvil)
   readonly isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
       map((result) => result.matches),
       shareReplay()
     );
+
+  // Propiedad para controlar el estado del sidenav
+  isSidenavOpen = true;
+
+  // Método para abrir el sidenav
+  openSidenav(): void {
+    this.isSidenavOpen = true;
+  }
+
+  // Método para cerrar el sidenav
+  closeSidenav(): void {
+    this.isSidenavOpen = false;
+  }
+
+  // Método para alternar el tema de la aplicación
+  toggleTheme(): void {
+    document.body.classList.toggle('dark-theme');
+  }
+
+  // Método para manejar el inicio de sesión del usuario
+  login(): void {
+    // Lógica para iniciar sesión
+  }
+
+  // Método para manejar el cierre de sesión del usuario
+  logout(): void {
+    // Lógica para cerrar sesión
+  }
 }

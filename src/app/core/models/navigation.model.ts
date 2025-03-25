@@ -1,12 +1,12 @@
 export interface MenuItem {
-  id: any;
+  id: string | number;
   url: string;
   label?: string;
   name: string;
   href: string;
   icon?: string;
-  iconComponent?: any;
+  iconComponent?: any; // Si tienes un tipo específico para los componentes de ícono, cámbialo aquí
   title?: string;
   variant?: string;
-  divider?: string;
+  divider?: boolean; // Cambié el tipo a booleano para indicar si es un divisor
 }

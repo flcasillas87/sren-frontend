@@ -1,12 +1,37 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="side" opened>
-    <app-sidebar>
-      <app-sidebar-nav></app-sidebar-nav>
-      <app-sidebar-header></app-sidebar-header>
-    </app-sidebar>
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) ? false : isSidenavOpen"
+    (openedChange)="isSidenavOpen = $event"
+  >
+    <app-sidebar-header></app-sidebar-header>
+    <app-sidebar-nav></app-sidebar-nav>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-header></app-header>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My Application</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="toggleTheme()">
+        <mat-icon>brightness_6</mat-icon>
+      </button>
+      <button mat-icon-button (click)="login()">
+        <mat-icon>login</mat-icon>
+      </button>
+      <button mat-icon-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
   </mat-sidenav-content>

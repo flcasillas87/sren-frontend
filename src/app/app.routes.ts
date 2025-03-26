@@ -1,17 +1,13 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router'; // Importa Routes para definir las rutas de la aplicación.
+import { LayoutComponent } from './shared/components/layout/layout.component'; // Importa el componente Layout
 
-const routes: Routes = [
+// Define las rutas de la aplicación.
+export const routes: Routes = [
   {
-    path: 'feature',
-    loadChildren: () => import('./feature/feature.module').then((m) => m.FeatureModule),
+    path: '',
+    component: LayoutComponent, 
   },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' },
+  { 
+    path: '**', 
+    redirectTo: '/home' }, // Redirige cualquier ruta no encontrada a '/home'.
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}

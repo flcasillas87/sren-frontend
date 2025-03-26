@@ -93,3 +93,8 @@ Contiene archivos de estilos globales, como styles.scss.
 
 ## src/main.ts
 El punto de entrada principal de la aplicación Angular.
+## NrRx
+Acciones: Coloca todas las acciones relacionadas en un archivo dentro de la carpeta actions.
+Reducers: Coloca todos los reducers relacionados en un archivo dentro de la carpeta reducers.
+Efectos: Coloca todos los efectos relacionados en un archivo dentro de la carpeta effects.
+Modelos: Define los modelos de datos en la carpeta models

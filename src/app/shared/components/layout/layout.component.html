@@ -1,23 +1,13 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) ? false : isSidenavOpen"
-    (openedChange)="isSidenavOpen = $event"
-  >
+  <mat-sidenav #drawer class="sidenav" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) ? false : isSidenavOpen" (openedChange)="isSidenavOpen = $event">
     <app-sidebar-header></app-sidebar-header>
     <app-sidebar-nav></app-sidebar-nav>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async"
-      >
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
         <mat-icon>menu</mat-icon>
       </button>
       <span>My Application</span>

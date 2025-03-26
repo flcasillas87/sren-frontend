@@ -31,12 +31,10 @@ import { FooterComponent } from '../footer/footer.component';
     RouterOutlet,
     SidebarNavComponent,
     SidebarHeaderComponent,
-    HeaderComponent,
-    SidebarComponent,
     FooterComponent,
   ],
 })
-export default class LayoutComponent {
+export class LayoutComponent {
   // Inyecta el servicio BreakpointObserver para detectar cambios en los puntos de interrupción de la pantalla
   private readonly breakpointObserver = inject(BreakpointObserver);
 

@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core'; // Importa Component desde Angular core.
+import { RouterOutlet,RouterLink,RouterLinkActive } from '@angular/router'; // Importa RouterOutlet para la navegación enrutada.
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-root', // Define el selector del componente.
+  imports: [RouterOutlet], // Importa RouterOutlet para la navegación enrutada.
+  templateUrl: './app.component.html', // Define la ruta del archivo de plantilla HTML.
+  styleUrls: ['./app.component.css'], // Define la ruta del archivo de estilos CSS.
 })
 export class AppComponent {
-  title = 'SREN';
+  title = 'SREN'; // Define una propiedad title para el componente.
 }

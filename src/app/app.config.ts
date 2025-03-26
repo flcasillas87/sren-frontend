@@ -1,19 +1,14 @@
-import { ApplicationConfig } from '@angular/core';
-import {
-  provideRouter,
-  withComponentInputBinding,
-  withViewTransitions,
-} from '@angular/router';
+import { ApplicationConfig } from '@angular/core'; // Importa ApplicationConfig para definir la configuración de la aplicación.
+import { provideRouter, withComponentInputBinding, withViewTransitions,} from '@angular/router'; // Importa funciones para configurar el enrutador.
+import { routes } from './app.routes'; // Importa las rutas de la aplicación.
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; // Importa la función para proporcionar animaciones de manera asíncrona.
+import { firebaseProviders } from './firebase.config'; // Importa los proveedores de Firebase.
 
-import { routes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { firebaseProviders } from './firebase.config';
-import { provideStore } from '@ngrx/store'; // Importa la función provideStore para proporcionar el almacenamiento de la aplicación.
+import { provideStore } from '@ngrx/store'; // Importa la función provideStore para proporcionar el almacenamiento de estado con NgRx.
 import { reducers } from './app.state'; // Importa los reducers de NgRx.
-import { authReducer, initialState } from './auth.reducer'; // Importa el reducer y el estado inicial del módulo de autenticación.
-import { provideEffects } from '@ngrx/effects'; // Importa la función provideEffects para proporcionar los efectos de la aplicación.
-import { AuthEffects } from './auth.effects'; // Importa los efectos del módulo de autenticación.
-import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { provideEffects } from '@ngrx/effects'; // Importa la función provideEffects para proporcionar los efectos de NgRx.
+import { HelloEffects } from './core/effects/auth.effects'; // Importa los efectos del módulo de autenticación.
+import { provideStoreDevtools } from '@ngrx/store-devtools'; // Importa la función provideStoreDevtools para proporcionar las herramientas de desarrollo de NgRx.
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -30,7 +25,7 @@ export const appConfig: ApplicationConfig = {
     provideStore(reducers),
 
     // Proporciona los efectos de NgRx.
-    provideEffects([AuthEffects]),
+    provideEffects([HelloEffects]),
 
     // Proporciona las herramientas de desarrollo de NgRx.
     provideStoreDevtools(),

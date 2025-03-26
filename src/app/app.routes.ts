@@ -1,27 +1,17 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-export const routes: Routes = [
+const routes: Routes = [
   {
-    path: '',
-    loadComponent: () => import('./shared/components/layout/layout.component'),
-    children: [
-      { 
-        path: 'admin', 
-        loadComponent: () => import('./shared/components/admin/admin.component'),
-      },
-      { 
-        path: 'dashboard', 
-        loadComponent: () => import('./shared/components/dashboard/dashboard.component'),
-      },
-      { 
-        path: 'precios', 
-        loadComponent: () => import('./shared/components/precios/precios.component'),
-      },
-      { 
-        path: 'card', 
-        loadComponent: () => import('./core/card/card.component'),
-      },
-    ]
+    path: 'feature',
+    loadChildren: () => import('./feature/feature.module').then((m) => m.FeatureModule),
   },
-
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' },
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}

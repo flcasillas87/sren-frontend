@@ -1,5 +1,4 @@
-
-   export interface Price {
+export interface Price {
      date: Date;
      value: number;
      currency: string;

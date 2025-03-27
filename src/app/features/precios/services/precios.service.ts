@@ -1,18 +1,26 @@
-import { inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, inject, signal } from '@angular/core';
+import { PriceService } from './price.service';
 
-export interface Price {
-  id: number;
-  product: string;
-  value: number;
+@Component({
+  standalone: true,
+  template: `
+    <button (click)="loadPrices()" [disabled]="loading()">
+      {{ loading() ? 'Cargando...' : 'Actualizar precios' }}
+    </button>
+  `
+})
+export class PriceComponent {
+  // Inyectar servicio
+  private priceService = inject(PriceService);
+  
+  // Estado reactivo
+  loading = signal(false);
+  prices = signal<Price[]>([]);
+
+  async loadPrices() {
+    this.loading.set(true);
+    const prices = await this.priceService.getPrices();
+    this.prices.set(prices);
+    this.loading.set(false);
+  }
 }
-
-export const priceService = () => {
-  const http = inject(HttpClient);
-  const apiUrl = '/api/prices';
-
-  return {
-    getPrices: () => http.get<Price[]>(apiUrl),
-    addPrice: (price: Price) => http.post<Price>(apiUrl, price),
-  };
-};

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MenuItem } from '../models/navigation.model';
+import { MenuItem } from '../models/layout.model';
 
 @Injectable({
   providedIn: 'root',

@@ -1,33 +1,27 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
 import { RouterOutlet } from '@angular/router';
-
+import { SidenavService } from '../../../core/services/sidenav.service';
 import { SidebarNavComponent } from '../sidebar/sidebar-nav/sidebar-nav.component';
 import { SidebarHeaderComponent } from '../sidebar/sidebar-header/sidebar-header.component';
-import { HeaderComponent } from '../header/header.component';
-import { SidebarComponent } from '../sidebar/sidebar.component';
 import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-layout',
+  standalone: true,
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
-  standalone: true,
   imports: [
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    AsyncPipe,
     RouterOutlet,
     SidebarNavComponent,
     SidebarHeaderComponent,
@@ -35,42 +29,32 @@ import { FooterComponent } from '../footer/footer.component';
   ],
 })
 export class LayoutComponent {
-  // Inyecta el servicio BreakpointObserver para detectar cambios en los puntos de interrupción de la pantalla
+  // Servicios inyectados con inject()
   private readonly breakpointObserver = inject(BreakpointObserver);
+  private readonly sidenavService = inject(SidenavService);
 
-  // Observable que emite true si la pantalla es de tamaño "handset" (dispositivo móvil)
-  readonly isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(
-      map((result) => result.matches),
-      shareReplay()
-    );
+  // Detecta si la pantalla es móvil
+  readonly isHandset = signal(false);
 
-  // Propiedad para controlar el estado del sidenav
-  isSidenavOpen = true;
+  // Estado del sidenav usando signal()
+  readonly isSidenavOpen = this.sidenavService.sidenavOpen$;
 
-  // Método para abrir el sidenav
-  openSidenav(): void {
-    this.isSidenavOpen = true;
+  constructor() {
+    // Actualiza isHandset cuando cambia el breakpoint
+    this.breakpointObserver.observe(Breakpoints.Handset).subscribe((result) => {
+      this.isHandset.set(result.matches);
+      console.log('Detectando tamaño de pantalla:', result.matches ? 'Móvil' : 'Escritorio');
+    });
+
+    // Efecto para detectar cambios en el sidenav
+    effect(() => {
+      console.log('Estado del sidenav:', this.isSidenavOpen() ? 'Abierto' : 'Cerrado');
+    });
   }
 
-  // Método para cerrar el sidenav
-  closeSidenav(): void {
-    this.isSidenavOpen = false;
-  }
-
-  // Método para alternar el tema de la aplicación
-  toggleTheme(): void {
-    document.body.classList.toggle('dark-theme');
-  }
-
-  // Método para manejar el inicio de sesión del usuario
-  login(): void {
-    // Lógica para iniciar sesión
-  }
-
-  // Método para manejar el cierre de sesión del usuario
-  logout(): void {
-    // Lógica para cerrar sesión
+  // Métodos para manejar el sidenav
+  toggleSidenav(): void {
+    console.log('Toggling sidenav...');
+    this.sidenavService.toggleSidenav();
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -50,4 +50,14 @@ import { MatDialogModule } from '@angular/material/dialog';
   templateUrl: './header-toggler.component.html',
   styleUrls: ['./header-toggler.component.css'],
 })
-export class HeaderTogglerComponent {}
+export class HeaderTogglerComponent {
+
+  // Emite el evento de alternar el sidenav
+  @Output() toggle = new EventEmitter<void>();
+
+  // Método para emitir el evento cuando se hace clic en el botón
+  onToggleSidenav(): void {
+    this.toggle.emit();  // Notifica al LayoutComponent
+  }
+}
+

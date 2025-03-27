@@ -1,24 +1,10 @@
 <mat-nav-list>
-  <ng-container *ngFor="let item of menuItems">
+  @for (item of menuItems$ | async; track item.id) {
     <mat-list-item>
       <mat-icon matListIcon>{{ item.icon }}</mat-icon>
-      <h4 matLine>{{ item.name }}</h4>
-      <button mat-icon-button (click)="updateMenuItem(item.id)">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-icon-button (click)="deleteMenuItem(item.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
+      <span>{{ item.name }}</span>
+      <span>{{item.url}}</span>
     </mat-list-item>
-    <mat-divider *ngIf="item.divider"></mat-divider>
-  </ng-container>
+  }
 </mat-nav-list>
-
-<div class="menu-actions">
-  <button mat-raised-button color="primary" (click)="addMenuItem()">Add Menu Item</button>
-  <button mat-raised-button color="accent" (click)="filterMenuItems()">Filter Admin Items</button>
-  <mat-form-field appearance="fill">
-    <mat-label>Search</mat-label>
-    <input matInput placeholder="Search" (input)="onSearch($event)">
-  </mat-form-field>
-</div>
+  

@@ -9,5 +9,6 @@ export const routes: Routes = [
   },
   { 
     path: '**', 
-    redirectTo: '/home' }, // Redirige cualquier ruta no encontrada a '/home'.
+    redirectTo: ''
+  }, // Redirige cualquier ruta no encontrada a '/home'.
 ];

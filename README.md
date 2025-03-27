@@ -26,53 +26,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## Estructura del Proyecto
-
-src/
-├── app/
-│   ├── core/
-│   │   ├── interceptors/
-│   │   │   └── auth.interceptor.ts
-│   │   ├── models/
-│   │   │   └── user.model.ts
-│   │   ├── services/
-│   │   │   └── auth.service.ts
-│   │   └── core.module.ts
-│   ├── shared/
-│   │   ├── components/
-│   │   │   ├── header/
-│   │   │   │   └── header.component.ts
-│   │   │   ├── footer/
-│   │   │   │   └── footer.component.ts
-│   │   │   └── layout/
-│   │   │       └── layout.component.ts
-│   │   ├── directives/
-│   │   │   └── highlight.directive.ts
-│   │   ├── pipes/
-│   │   │   └── date-format.pipe.ts
-│   │   └── shared.module.ts
-│   ├── features/
-│   │   ├── admin/
-│   │   │   └── admin.component.ts
-│   │   ├── dashboard/
-│   │   │   └── dashboard.component.ts
-│   │   ├── precios/
-│   │   │   └── precios.component.ts
-│   │   └── card/
-│   │       └── card.component.ts
-│   ├── app.component.ts
-│   ├── app.module.ts
-│   ├── app.routes.ts
-│   └── app.config.ts
-├── assets/
-│   └── images/
-├── environments/
-│   ├── environment.prod.ts
-│   └── environment.ts
-├── styles/
-│   └── styles.scss
-└── main.ts
-
 ## src/app/core
 Contiene los interceptores HTTP, como auth.interceptor.ts, que se utilizan para interceptar y modificar las solicitudes HTTP.
 
@@ -98,3 +51,83 @@ Acciones: Coloca todas las acciones relacionadas en un archivo dentro de la carp
 Reducers: Coloca todos los reducers relacionados en un archivo dentro de la carpeta reducers.
 Efectos: Coloca todos los efectos relacionados en un archivo dentro de la carpeta effects.
 Modelos: Define los modelos de datos en la carpeta models
+# Estructura de Proyecto Angular para Sistema de Precios de Gas Natural
+
+Este documento detalla la estructura recomendada para un proyecto Angular robusto, enfocado en un sistema de gestión de precios y costos de gas natural.
+
+---
+
+## 📂 Estructura de Archivos y Carpetas
+
+```bash
+src/
+├── app/
+│   ├── core/                       
+│   │   ├── guards/                 
+│   │   │   └── auth.guard.ts
+│   │   ├── interceptors/           
+│   │   │   └── http-token.interceptor.ts
+│   │   ├── services/               
+│   │   │   ├── auth.service.ts
+│   │   │   └── api.service.ts
+│   │   ├── models/                 
+│   │   │   └── user.model.ts
+│   │   └── core.module.ts          
+│   │
+│   ├── shared/                     
+│   │   ├── components/             
+│   │   │   ├── table/
+│   │   │   │   ├── table.component.ts
+│   │   │   │   └── table.component.html
+│   │   │   └── loading-spinner/
+│   │   ├── pipes/                  
+│   │   │   └── currency-format.pipe.ts
+│   │   ├── directives/             
+│   │   │   └── tooltip.directive.ts
+│   │   └── shared.module.ts        
+│   │
+│   ├── features/                   
+│   │   ├── dashboard/              
+│   │   │   ├── components/         
+│   │   │   │   └── chart/
+│   │   │   ├── services/           
+│   │   │   │   └── dashboard.service.ts
+│   │   │   ├── models/             
+│   │   │   │   └── chart-data.model.ts
+│   │   │   └── dashboard.module.ts
+│   │   │
+│   │   ├── prices/                 
+│   │   │   ├── components/
+│   │   │   │   ├── price-form/     
+│   │   │   │   └── price-list/     
+│   │   │   ├── services/
+│   │   │   │   └── price.service.ts
+│   │   │   ├── models/
+│   │   │   │   └── price.model.ts
+│   │   │   └── prices.module.ts
+│   │   │
+│   │   └── consumption/            
+│   │
+│   ├── data/                       
+│   │   ├── enums/                  
+│   │   │   └── measurement-unit.enum.ts
+│   │   ├── interfaces/             
+│   │   │   └── api-response.interface.ts
+│   │   └── api/                    
+│   │       └── api.config.ts
+│   │
+│   ├── app-routing.module.ts       
+│   └── app.module.ts               
+│
+├── assets/                         
+│   ├── icons/
+│   ├── images/
+│   └── styles/                     
+│       ├── _variables.scss         
+│       └── styles.scss             
+│
+├── environments/                   
+│   ├── environment.ts              
+│   └── environment.prod.ts         
+│
+└── index.html                      

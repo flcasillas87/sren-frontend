@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 
-import { PreciosService } from '../../../core/services/precios.service';
+import { PreciosService } from '../../../features/precios/services/precios.service';
 import { Precio } from '../../../core/models/precios.model';
 
 @Component({

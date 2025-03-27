@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PreciosService } from '../../../core/services/precios.service';
+import { PreciosService } from '../../../features/precios/services/precios.service';
 
 @Component({
   selector: 'app-precios',

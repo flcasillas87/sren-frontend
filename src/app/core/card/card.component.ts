@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Precio } from '../models/precios.model';
-import { PreciosService } from '../services/precios.service';
+import { PreciosService } from '../../features/precios/services/precios.service';
 
 @Component({
   selector: 'app-card',

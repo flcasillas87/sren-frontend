@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { PriceService } from './price.service';
+import { PriceService } from '../../services/price.service';
 
 @Component({
   standalone: true,

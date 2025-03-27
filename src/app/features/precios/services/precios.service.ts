@@ -1,6 +1,11 @@
-// features/prices/services/price.service.ts
 import { inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+export interface Price {
+  id: number;
+  product: string;
+  value: number;
+}
 
 export const priceService = () => {
   const http = inject(HttpClient);
@@ -8,6 +13,6 @@ export const priceService = () => {
 
   return {
     getPrices: () => http.get<Price[]>(apiUrl),
-    addPrice: (price: Price) => http.post<Price>(apiUrl, price)
+    addPrice: (price: Price) => http.post<Price>(apiUrl, price),
   };
 };

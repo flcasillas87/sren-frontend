@@ -25,7 +25,6 @@ import { MatDialogModule } from '@angular/material/dialog';
   selector: 'app-header-toggler',
   standalone: true,
   imports: [
-    AsyncPipe,
     MatInputModule,
     MatSelectModule,
     MatAutocompleteModule,

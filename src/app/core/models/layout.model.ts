@@ -1,9 +1,37 @@
 // Interfaz para el contenido del footer
+export interface Link {
+  links: {
+    id?: string | number;
+    url?: string;
+    label?: string;
+    name?: string;
+    href?: string;
+    icon?: string;
+    iconComponent?: any;
+    title?: string;
+    variant?: string;
+    divider?: boolean;
+  }[];
+}
+
+// Interfaz para el contenido del footer
 export interface FooterContent {
   contactInfo: string;
-  links: { title: string; url: string }[];
+  links: {
+    id?: string | number;
+    url?: string;
+    label?: string;
+    name?: string;
+    href?: string;
+    icon?: string;
+    iconComponent?: any;
+    title?: string;
+    variant?: string;
+    divider?: boolean;
+  }[];
   copyright: string;
 }
+
 
 // Otras interfaces relacionadas con el layout pueden ser añadidas aquí
 // Ejemplo:

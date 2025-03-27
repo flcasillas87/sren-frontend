@@ -1,23 +1,17 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav"
-    [mode]="isHandset() ? 'over' : 'side'"
-    [opened]="isSidenavOpen()"
-  >
-    <app-sidebar-header></app-sidebar-header>
-    <app-sidebar-nav></app-sidebar-nav>
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="isSidenavOpen">
+    <app-sidebar></app-sidebar>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      @if (isHandset()) {
-        <button mat-icon-button (click)="toggleSidenav()">
-          <mat-icon>menu</mat-icon>
-        </button>
-      }
-      <span>My Application</span>
-      <span class="spacer"></span>
-    </mat-toolbar>
+    <!-- Header -->
+    <app-header></app-header>
 
+    <!-- Main Content Area -->
     <router-outlet></router-outlet>
+HOLA
+    <!-- Footer -->
+    <app-footer></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

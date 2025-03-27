@@ -1,4 +1,5 @@
 import { ApplicationConfig } from '@angular/core'; // Importa ApplicationConfig para definir la configuración de la aplicación.
+import { provideHttpClient } from '@angular/common/http';
 import { provideRouter, withComponentInputBinding, withViewTransitions,} from '@angular/router'; // Importa funciones para configurar el enrutador.
 import { routes } from './app.routes'; // Importa las rutas de la aplicación.
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; // Importa la función para proporcionar animaciones de manera asíncrona.
@@ -20,6 +21,12 @@ export const appConfig: ApplicationConfig = {
 
     // Proporciona los proveedores de Firebase.
     firebaseProviders,
+
+    // Proporciona el cliente HTTP para realizar solicitudes HTTP.
+    provideHttpClient(),
+
+
+    //{ provide:priceService, useFactory:priceService },
 
     // Proporciona el almacenamiento de estado con NgRx.
     provideStore(reducers),

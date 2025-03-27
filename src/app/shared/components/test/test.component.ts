@@ -6,7 +6,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 
 import { PreciosService } from '../../../features/precios/services/precios.service';
-import { Precio } from '../../../core/models/precios.model';
+import { Precio } from '../../../features/precios/models/precios.model';
 
 @Component({
   selector: 'app-test',

@@ -1,69 +1,55 @@
 import { inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Price } from '../models/precios.model';
+import { firstValueFrom } from 'rxjs';
 
-export interface Price {
-  id: string;
-  date: Date;
-  value: number;
-  currency: 'USD' | 'MXN';
-  provider: string;
-}
+export class PriceService {
 
-export const priceService = () => {
-  const http = inject(HttpClient);
-  
-  // Estado reactivo
-  const prices = signal<Price[]>([]);
-  const loading = signal(false);
-  const error = signal<string | null>(null);
+  // Usamos signal para manejar el estado reactivo
+  private pricesSignal = signal<Price[]>([]);
+  private loadingSignal = signal<boolean>(false);
+  private errorSignal = signal<string | null>(null);
 
-  // Precio promedio computado
-  const averagePrice = computed(() => {
-    if (prices().length === 0) return 0;
-    return prices().reduce((sum, p) => sum + p.value, 0) / prices().length;
+  // Computed para calcular el precio promedio basado en los precios
+  averagePrice = computed(() => {
+    const prices = this.pricesSignal();
+    if (prices.length === 0) return 0;
+    return prices.reduce((sum, p) => sum + p.value, 0) / prices.length;
   });
+  
+  constructor(private http: HttpClient) {}
 
-  // Cargar precios desde API
-  const loadPrices = async () => {
-    loading.set(true);
-    try {
-      const result = await http.get<Price[]>('/api/prices').toPromise();
-      prices.set(result || []);
-      error.set(null);
-    } catch (err) {
-      error.set('Error cargando precios');
-      console.error(err);
-    } finally {
-      loading.set(false);
-    }
-  };
+  // Cargar precios desde la API
+  loadPrices(): void {
+    this.loadingSignal.set(true);
+    this.http.get<Price[]>('/api/prices').subscribe(
+      (result) => {
+        this.pricesSignal.set(result || []);
+        this.errorSignal.set(null);
+      },
+      (error) => {
+        this.errorSignal.set('Error cargando precios');
+      },
+      () => {
+        this.loadingSignal.set(false);
+      }
+    );
+  }
 
-  // Agregar nuevo precio
-  const addPrice = async (newPrice: Omit<Price, 'id'>) => {
-    loading.set(true);
-    try {
-      const createdPrice = await http.post<Price>('/api/prices', {
-        ...newPrice,
-        id: crypto.randomUUID()
-      }).toPromise();
-      
-      prices.update(current => [...current, createdPrice!]);
-      error.set(null);
-      return createdPrice;
-    } catch (err) {
-      error.set('Error guardando precio');
-      throw err;
-    } finally {
-      loading.set(false);
-    }
-  };
-
-  return {
-    prices: prices.asReadonly(),
-    averagePrice,
-    loading: loading.asReadonly(),
-    error: error.asReadonly(),
-    loadPrices,
-    addPrice
-  };
+  // Agregar un nuevo precio
+  addPrice(newPrice: Omit<Price, 'id'>): void {
+    this.loadingSignal.set(true);
+    this.http.post<Price>('/api/prices', newPrice).subscribe(
+      (createdPrice) => {
+        this.pricesSignal.update((prices) => [...prices, createdPrice]);
+        this.errorSignal.set(null);
+      },
+      (error) => {
+        this.errorSignal.set('Error guardando precio');
+      },
+      () => {
+        this.loadingSignal.set(false);
+      }
+    );
+  }
 };

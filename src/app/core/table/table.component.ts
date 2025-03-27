@@ -6,7 +6,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { MatSortModule, MatSort } from '@angular/material/sort';
 import { TableDataSource, TableItem } from './table-datasource';
-import { Precio } from '../models/precios.model';
 
 @Component({
   selector: 'app-table',
@@ -24,7 +23,7 @@ import { Precio } from '../models/precios.model';
 export class TableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<Precio>;
+ 
   dataSource = new TableDataSource();
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
@@ -33,6 +32,5 @@ export class TableComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
   }
 }

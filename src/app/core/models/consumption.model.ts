@@ -1,5 +1,3 @@
-
-// models/consumption.model.ts
 export interface Consumption {
   id: string;
   date: Date;

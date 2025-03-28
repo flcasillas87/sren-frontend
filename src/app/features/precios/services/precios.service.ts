@@ -1,24 +1,23 @@
 import { Injectable, signal, computed } from '@angular/core';
 import { Price } from '../models/precios.model';
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class PriceService {
+  //Estado privado para los precios usando Signal
+  private readonly _prices = signal<Price[]>([]);
 
-  //Signal para mantener el estado reactivo de los precios
-  private prices = signal<Price[]>([]);
-
-  // Agregar un precio
-  addPrice(price: Omit<Price, 'id'>) {
-    const newPrice: Price = { ...price, id: crypto.randomUUID() };
-    this.prices.update(p => [...p, newPrice]);
-    return newPrice;
+  // Obtener lista de precios (solo lectura)
+  get prices() {
+    return this._prices.asReadonly();
   }
 
-  // Obtener todos los precios
-  getPrices() {
-    return this.prices.asReadonly();
+  // Método para agregar precio
+  addPrice(priceData: Omit<Price, 'id' | 'date'>): void {
+    const newPrice: Price = {
+      id: crypto.randomUUID(),
+      date: new Date(),
+      ...priceData
+    };
+
+    this._prices.update(prices => [...prices, newPrice]);
   }
-
-
 }

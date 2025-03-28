@@ -1,44 +1,21 @@
-working...
-<form class="-space-y-4 p-4" (ngSubmit)="addPrice()">
-  <mat-form-field class="w-full">
-    <mat-label>Precio</mat-label>
-    <input matInput placeholder="Ingrese el precio" formControlName="price" required type="number">
-  </mat-form-field>
-
-    <!-- Valor -->
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Valor</mat-label>
-      <input matInput type="number" [(ngModel)]="priceForm().value" name="value" min="0.01">
-    </mat-form-field>
-
-    <!-- Moneda -->
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Moneda</mat-label>
-      <mat-select formControlName="currency">
-        <mat-option value="USD">USD</mat-option>
-        <mat-option value="MXN">MXN</mat-option>
-      </mat-select>
-    </mat-form-field>
- 
-  <!-- Estado -->
-  <div class="text-sm text-red-500" *ngIf="status() === 'error'">
-    {{ errorMsg() }}
-  </div>
-  <div class="text-sm text-green-500" *ngIf="status() === 'success'">
-    Guardado correctamente.
+<form (ngSubmit)="onSubmit()" class="price-form">
+  <div class="form-group">
+    <input type="text" [(ngModel)]="newPrice.provider" name="provider" placeholder="Proveedor" required>
   </div>
 
-  <!-- Botón -->
-  <button mat-raised-button color="primary" class="w-full" [disabled]="!formValid() || status() === 'loading'">
-    {{ status() === 'loading' ? 'Guardando...' : 'Guardar' }}
-  </button>
+  <div class="form-group">
+    <select [(ngModel)]="newPrice.currency" name="currency" required>
+      <option value="MXN">Pesos Mexicanos</option>
+      <option value="USD">Dólares Americanos</option>
+    </select>
+  </div>
 
+  <div class="form-group">
+    <input type="number" [(ngModel)]="newPrice.value" name="value" placeholder="Monto" min="0.01" step="0.01" required>
+  </div>
+  <!-- Botón de Submit -->
+  <button type="submit" [disabled]="!formValid()">Guardar Precio</button>
 
 </form>
-UL
-<ul>
-  @for(price of prices(); track price.id) {
-  <li class="py-1 border-b">{{ price.provider }} - {{ price.currency }} {{ price.value | number:'1.2-2' }} ({{
-    price.date | date:'shortDate' }})</li>
-  }
-</ul>
+
+<!-- Listado de Precios Guardados -->

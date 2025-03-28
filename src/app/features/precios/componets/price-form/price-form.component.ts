@@ -1,12 +1,16 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatCardModule } from '@angular/material/card';
+import { FormControl, FormBuilder, FormGroup, Validators, FormArray,FormsModule } from '@angular/forms';
+// Importación de módulos de Angular Material
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
+import { Price, PriceForm } from '../../models/precios.model';
 import { PriceService } from '../../services/precios.service';
+
 
 @Component({
   selector: 'app-price-form',
@@ -14,47 +18,74 @@ import { PriceService } from '../../services/precios.service';
   styleUrl: './price-form.component.css',
   imports: [
     CommonModule,
-    MatProgressSpinnerModule,
-    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
-    MatListModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatIconModule,
+    FormsModule,
   ],
 
 })
 export class PriceFormComponent {
-  priceForm: FormGroup;
-  
-  // Inyectar servicio
-  private priceServiceInstance = priceService();
+  // Inyectar el servicio de precios
+  private priceService = inject(PriceService);
 
-  // Signals del servicio
-  prices = this.priceServiceInstance.prices;
-  averagePrice = this.priceServiceInstance.averagePrice;
-  loading = this.priceServiceInstance.loading;
-  error = this.priceServiceInstance.error
+  // Signal para mantener el estado reactivo del formulario
+  priceForm = signal<PriceForm>({
+    date: '',
+    value: '',
+    currency: 'USD',
+    provider: '',
+  });
 
-  constructor() {
-    // Efecto para detectar cambios en precios
-    computed(() => {
-      console.log('Precios actualizados:', this.prices());
-    });
+  // Computed para validar
+  formValid = computed(() =>
+    !!this.priceForm().date &&
+    !!this.priceForm().value &&
+    !!this.priceForm().currency &&
+    !!this.priceForm().provider
+  );
 
-    // Carga inicial de precios
-    this.loadPrices();
-  }
+  // Estados del formulario
+  status = signal<'idle' | 'loading' | 'success' | 'error'>('idle');
+  errorMsg = signal<string>('');
 
-  // Cargar precios
-  loadPrices() {
-    this.priceServiceInstance.loadPrices();
-  }
+  // Computed para convertirlo automáticamente en un Price
+  priceToSave = computed(() => ({
+    date: new Date(this.priceForm().date),
+    value: parseFloat(this.priceForm().value),
+    currency: this.priceForm().currency,
+    provider: this.priceForm().provider
+  }));
 
-  // Agregar precio de prueba
+  // Computed para el estado del formulario
+  formStatus = computed(() => {
+    return this.priceForm().date && this.priceForm().value ? 'valid' : 'invalid';
+  });
+  //Mostrar precioss
+  prices = this.priceService.getPrices();
+
+
+  // Método para agregar un precio (ahora llama al servicio)
   addPrice() {
-    this.priceServiceInstance.addPrice({
-      date: new Date(),
-      value: Math.random() * 100,
-      currency: 'USD',
-      provider: 'Test Provider',
-    });
+    if (this.formStatus() === 'valid') {
+      const newPrice = this.priceForm();
+      this.priceService.addPrice({
+        ...newPrice,
+        value: Number(newPrice.value),
+        date: new Date(newPrice.date),
+      });
+      console.log('Precio agregado:', newPrice);
+    }
+  }
+
+  // Computed para manejar mensajes de error
+  get errorMessage() {
+    return 'Por favor, completa todos los campos.';
+  }
+
+  save() {
   }
 }

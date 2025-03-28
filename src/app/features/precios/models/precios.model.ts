@@ -5,3 +5,10 @@ export interface Price {
   currency: 'USD' | 'MXN';
   provider: string;
 }
+
+export interface PriceForm {
+  date: string;
+  value: string;
+  currency: 'USD' | 'MXN';
+  provider: string;
+}

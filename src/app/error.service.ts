@@ -1,0 +1,1 @@
+//maneja un signal global para mostrar mensajes tipo toast o logs
